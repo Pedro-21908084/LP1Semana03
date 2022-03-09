@@ -6,7 +6,21 @@ namespace NPCPerks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Declaration of variables
+            string input;
+            perks[] NPCs;
+
+            //get input and crated array of NPCs according
+            Console.Write("Number of NPCs: ");
+            input  = Console.ReadLine();
+            NPCs = new perks [int.Parse(input)];
+
+            foreach(perks npc in NPCs)
+            {
+                Console.WriteLine(npc.ToString());
+            }
+            //get perks of each NPC
+            //print perks and special cases
         }
     }
 }
