@@ -9,6 +9,7 @@ namespace ArrayBiDim
             //Declaration of variables
             float[,] array;
             string input;
+            float meanPerLine = 0, addOfMeans = 0;
 
             //Read input
             Console.Write("Size (Ex: zXy): ");
@@ -29,17 +30,23 @@ namespace ArrayBiDim
                     array[i, j] = float.Parse(input);
                 }
             }
-            //print means of each line
-            //print the total of all the means
 
+            Console.WriteLine();
+            
             for (int i = 0; i < array.GetLength(0); i++)
             {
+                //calculates and print means of each line
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    Console.Write(array[i, j]);
+                    meanPerLine += array[i, j];
                 }
-                Console.WriteLine();
+                meanPerLine /= array.GetLength(1);
+                Console.WriteLine($"Mean of line {i+1} = {meanPerLine}");
+                addOfMeans += meanPerLine;
+                meanPerLine = 0;
             }
+            //print the total of all the means
+            Console.WriteLine($"Total of all means = {addOfMeans}");
         }
     }
 }
